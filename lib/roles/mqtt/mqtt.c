@@ -1767,8 +1767,8 @@ lws_mqtt_client_send_subcribe(struct lws *wsi, lws_mqtt_subscribe_param_t *sub)
 	lws_mqtt_str_t mqtt_vh_payload;
 	uint8_t exists[8], extant;
 	lws_mqtt_subs_t *mysub;
-	uint32_t rem_len, tops;
-	uint32_t n;
+	uint32_t rem_len, n;
+	uint32_t __attribute__((unused)) tops;
 
 	assert(sub->num_topics);
 	assert(sub->num_topics < sizeof(exists));
@@ -1932,7 +1932,8 @@ lws_mqtt_client_send_unsubcribe(struct lws *wsi,
 	struct lws *nwsi = lws_get_network_wsi(wsi);
 	lws_mqtt_str_t mqtt_vh_payload;
 	uint8_t send_unsub[8], orphaned;
-	uint32_t rem_len, n, tops;
+	uint32_t rem_len, n;
+	uint32_t __attribute__((unused)) tops;
 	lws_mqtt_subs_t *mysub;
 
 	lwsl_info("%s: Enter\n", __func__);
